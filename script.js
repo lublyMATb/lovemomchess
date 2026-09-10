@@ -13,7 +13,7 @@
   const promotionChoices = document.getElementById("promotionChoices");
 
   const PIECES = Object.freeze({
-    wK: "♔", wQ: "♕", wR: "♖", wB: "♗", wN: "♘", wP: "♙",
+    wK: "♚", wQ: "♛", wR: "♜", wB: "♝", wN: "♞", wP: "♟",
     bK: "♚", bQ: "♛", bR: "♜", bB: "♝", bN: "♞", bP: "♟"
   });
 
@@ -472,7 +472,7 @@
     for (const type of PROMOTIONS) {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "promotion-choice";
+      btn.className = `promotion-choice ${color === "w" ? "white-piece" : "black-piece"}`;
       btn.textContent = PIECES[color + type];
       btn.setAttribute("aria-label", `Promote to ${type}`);
       btn.addEventListener("click", () => {
@@ -508,7 +508,7 @@
         const piece = state.board[r][c];
         if (piece) {
           const span = document.createElement("span");
-          span.className = "piece";
+          span.className = `piece ${colorOf(piece) === "w" ? "white-piece" : "black-piece"}`;
           span.textContent = PIECES[piece];
           square.appendChild(span);
         }

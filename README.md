@@ -45,3 +45,10 @@ Your site will be available at:
 ## Security
 
 See `SECURITY.md`.
+
+
+## v2 visual changes
+
+- All 64 board cells are forced to exactly equal square dimensions.
+- White pieces are solid white with a dark outline.
+- Black pieces are solid near-black with a subtle light outline so they remain visible on dark squares.
