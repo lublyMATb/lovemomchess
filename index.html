@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <title>Chess — Local 2 Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Chess</h1>
+        <p class="subtitle">Локальная игра на двоих</p>
+      </div>
+      <div class="top-actions">
+        <button id="flipBtn" type="button">Перевернуть доску</button>
+        <button id="newGameBtn" type="button" class="danger">Новая игра</button>
+      </div>
+    </header>
+
+    <section class="game-layout">
+      <div class="board-wrap">
+        <div id="board" class="board" aria-label="Шахматная доска"></div>
+      </div>
+
+      <aside class="panel">
+        <div id="status" class="status">Белые ходят</div>
+
+        <div class="captured-block">
+          <h2>Взятые фигуры</h2>
+          <div><strong>Белыми:</strong> <span id="capturedByWhite">—</span></div>
+          <div><strong>Чёрными:</strong> <span id="capturedByBlack">—</span></div>
+        </div>
+
+        <div class="history-block">
+          <h2>История ходов</h2>
+          <ol id="moveHistory" class="history"></ol>
+        </div>
+
+        <div class="panel-actions">
+          <button id="undoBtn" type="button">Отменить ход</button>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="promotionModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="promotionTitle">
+    <div class="modal-card">
+      <h2 id="promotionTitle">Выберите фигуру</h2>
+      <div id="promotionChoices" class="promotion-choices"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
